@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a class="heading" href="/">Heart Disease Predictor</a>
+        {% if result %}
+            <div style="color: rgb(3, 221, 250);">{{result}}</div>
+        {% endif %}
+        <form method="post" action="/predict">
+            <div class="box">
+                <label class="text">Age: </label>
+                <input type="number" class="dropdown" name="age" placeholder="Enter age in years" required>
+            </div>
+            <div class="box">
+                <label class="text">Gender: </label>
+                <input type="radio" name="gender" value=1 required>
+                <label class="choice">Male</label>
+                <input type="radio" name="gender" value=0 required>
+                <label class="choice">Female</label>
+            </div>
+            <div class="box">
+                <label class="text">Chest Pain Type: </label>
+                <select name="chest"  class="dropdown" required>
+                    <option value=1 >Typical Angina</option>
+                    <option value=2>Atypical Angina</option>
+                    <option value=3>Non-Anginal Pain</option>
+                    <option value=4>Asymptomatic</option>
+                </select>
+            </div>
+            <div class="box">
+                <label class="text">Resting Blood Pressure: </label>
+                <input type="number" class="dropdown" name="rbp" placeholder="Enter blood pressure in mm/Hg" required>
+            </div>
+            <div class="box">
+                <label class="text">Cholestrol: </label>
+                <input type="number" class="dropdown" name="cholestrol" placeholder="Enter cholestrol in mg/dl" required>
+            </div>
+            <div class="box">
+                <label class="text">FBS over 120: </label>
+                <input type="radio" name="fbs" value=1 required>
+                <label class="choice">Yes</label>
+                <input type="radio" name="fbs" value=0 required>
+                <label class="choice">No</label>
+            </div>
+            <div class="box">
+                <label class="text">Rest ECG Results: </label>
+                <select name="rest-ecg-result" class="dropdown" required>
+                    <option value=0>Normal</option>
+                    <option value=1>Having ST-T wave abnormality</option>
+                    <option value=2>Showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+                </select>
+            </div>
+            <div class="box">
+                <label class="text">Maximum Heart Rate: </label>
+                <input type="number" class="dropdown" name="mhr" placeholder="Enter heart rate" required>
+            </div>
+            <div class="box">
+                <label class="text">Exercise Induced Angina: </label>
+                <input type="radio" name="eia" value=1 required>
+                <label class="choice">Yes</label>
+                <input type="radio" name="eia" value=0 required>
+                <label class="choice">No</label>
+            </div>
+            <div class="box">
+                <label class="text">ST Depression: </label>
+                <input type="number" step="0.01" class="dropdown" name="st-depression" placeholder="Enter ST Depression" required>
+            </div>
+            <div class="box">
+                <label class="text">Slope of ST: </label>
+                <input type="radio" name="st" value=1 required>
+                <label class="choice">Upsloping</label>
+                <input type="radio" name="st" value=2 required>
+                <label class="choice">Flat</label>
+                <input type="radio" name="st" value=3 required>
+                <label class="choice">Downsloping</label>
+            </div>
+            <div class="box">
+                <label class="text">Number of vessels by Fluoroscopy: </label>
+                <select name="no-of-vessels" class="dropdown" required>
+                    <option value=0>0</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                </select>
+            </div>
+                <div class="box">
+                <label class="text">Thallium: </label>
+                <input type="radio" name="thallium" value=3 required>
+                <label class="choice">Normal</label>
+                <input type="radio" name="thallium" value=6 required>
+                <label class="choice">Fixed defect</label>
+                <input type="radio" name="thallium" value=7 required>
+                <label class="choice">Reversable defect</label>
+            </div>
+            <div style="display:flex; justify-content: center;">
+                <input type="submit" name="Predict" class="btn">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
