@@ -26,11 +26,6 @@ def predict_disease():
     input_data=np.array([age,gender,chest,rbp,cholestrol,fbs,rest_ecg_result,mhr,eia,st_depression,st,no_of_vessels,thallium]).reshape(1,13)
     input_data=scaler.transform(input_data)
     result=model.predict(input_data)
-    if(result[0]==1):
-        result='Present'
-    else:
-        result='Absent'
-    result='Heart Disease is ' + result
     return render_template('index.html',result=result[0])
 if __name__=='__main__':
     app.run(debug=False,host="0.0.0.0")
