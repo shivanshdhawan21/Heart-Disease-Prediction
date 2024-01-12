@@ -9,8 +9,10 @@
 <body>
     <div class="container">
         <a class="heading" href="/">Heart Disease Predictor</a>
-        {% if result %}
-            <div style="color: rgb(3, 221, 250);">{{result}}</div>
+        {% if result==0 %}
+            <div style="color: rgb(3, 221, 250);">Heart Disease is Absent</div>
+        {% elif result==1 %}
+            <div style="color: red;">Heart Disease is Present</div>
         {% endif %}
         <form method="post" action="/predict">
             <div class="box">
