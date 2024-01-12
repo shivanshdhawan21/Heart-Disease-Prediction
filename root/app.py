@@ -31,6 +31,6 @@ def predict_disease():
     else:
         result='Absent'
     result='Heart Disease is ' + result
-    return render_template('index.html',result=result)
+    return render_template('index.html',result=result[0])
 if __name__=='__main__':
     app.run(debug=False,host="0.0.0.0")
